@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from "react";
 // import things related to React Navigation
-import { NavigationContainer, useLinkTo} from '@react-navigation/native';
+import { NavigationContainer} from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import {
   StyleSheet,

@@ -22,10 +22,20 @@ const Register = props => {
   return (
 
     <View style={styles.containerLogo}>    
-      <Image
-        style={styles.logo}
-        source={require('../assets/images/logo.png')}
-      />
+
+        <TouchableOpacity  onPress={() => props.navigation.goBack()}>
+          <Image style={{
+            top: 50,
+            width:30,
+            height: 20,
+            left:-170,
+          }} source={require('../assets/images/arrow-small-left.png')} />
+        </TouchableOpacity>
+
+        <Image
+          style={styles.logo}
+          source={require('../assets/images/logo.png')}/>
+
 
       <View style={styles.container}>
       <StatusBar style="auto" />
@@ -91,8 +101,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   logo: {
+    flex:0,
     resizeMode: "cover",
-    top: 100,
+    top: 80,
     height: 126,
     width: 275,
     marginBottom: 240,
@@ -132,6 +143,11 @@ const styles = StyleSheet.create({
       textAlign:'center',
       paddingLeft : 10,
       paddingRight : 10
+  },
+  row: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    top:100,
   },
 });
 

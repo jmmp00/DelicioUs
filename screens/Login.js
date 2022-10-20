@@ -1,17 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from "react";
-// import things related to React Navigation
-import { NavigationContainer, useLinkTo} from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import {
   StyleSheet,
   Text,
   View,
   Image,
   TextInput,
-  Button,
   TouchableOpacity,
-  TouchableHighlight,
 } from "react-native";
 
 const Login = props => {
@@ -53,14 +48,12 @@ const Login = props => {
           <Text style={styles.forgot_button}>Forgot Password?</Text>
         </TouchableOpacity>
   
-  
-  
         <TouchableOpacity
           style={styles.loginScreenButton}
           onPress={() => props.navigation.navigate('Screen2')}
           underlayColor='#fff'>
           <Text style={styles.loginText}>Login</Text>
- </TouchableOpacity>
+        </TouchableOpacity>
   
         <View style={styles.row}>
           <Text>Don't have an account? </Text>    
@@ -115,9 +108,9 @@ const Login = props => {
       marginBottom: 30,
     },
     loginScreenButton:{
-    alignItems: 'center',
-    height: 40,
-    width:100,
+      alignItems: 'center',
+      height: 40,
+      width:100,
       paddingTop:8,
       paddingBottom:10,
       backgroundColor:'#D3EAE8',
