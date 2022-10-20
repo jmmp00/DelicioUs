@@ -25,7 +25,7 @@ const Register = props => {
 
         <TouchableOpacity  onPress={() => props.navigation.goBack()}>
           <Image style={{
-            top: 50,
+            top: 70,
             width:30,
             height: 20,
             left:-170,
@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
     top: 80,
     height: 126,
     width: 275,
-    marginBottom: 240,
+    marginBottom: 200,
   },
   inputView: {
     backgroundColor: "#F8F8FF",
@@ -123,12 +123,9 @@ const styles = StyleSheet.create({
     padding: 10,
     marginLeft: 20,
   },
-  forgot_button: {
-    height: 30,
-    marginBottom: 30,
-  },
   RegisterScreenButton:{
     alignItems: 'center',
+    top: 25,
     height: 40,
     width:100,
     paddingTop:8,
@@ -143,11 +140,6 @@ const styles = StyleSheet.create({
       textAlign:'center',
       paddingLeft : 10,
       paddingRight : 10
-  },
-  row: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    top:100,
   },
 });
 
