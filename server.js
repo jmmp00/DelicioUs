@@ -8,19 +8,25 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-const connection = mysql.createConnection({
+const connection = mysql.createPool({
     host     : 'localhost', // Your connection adress (localhost).
     user     : 'root',     // Your database's username.
     password : '',        // Your database's password.
     database : 'delicious'   // Your database's name.
   });
 
-  const server = app.listen(4545, function(){
-    var host = server.address().address
-    var port = server.address().port
+  app.get('/users', function (req, res){
+    connection.getConnection(function (err, connection){
+      connection.query('SELECT * FROM users', function (error, results, fields){
+        if (error) throw error;
+
+        res.send(results)
+      });
+    });
   });
 
-  connection.connect(function(error){
-    if(error) console.log(error);
-    else console.log("connected")
-  });
+  app.listen(3000, () => {
+    console.log('Go to http://localhost:3000/users so you can see your data')
+  })
+
+
