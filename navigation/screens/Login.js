@@ -19,7 +19,7 @@ const Login = props => {
       <View style={styles.containerLogo}>    
         <Image
           style={styles.logo}
-          source={require('../assets/images/logo.png')}
+          source={require('../../assets/images/logo.png')}
         />
   
         <View style={styles.container}>
@@ -50,7 +50,7 @@ const Login = props => {
   
         <TouchableOpacity
           style={styles.loginScreenButton}
-          onPress={() => props.navigation.navigate('Screen2')}
+          onPress={() => props.navigation.navigate('HomeScreen')}
           underlayColor='#fff'>
           <Text style={styles.loginText}>Login</Text>
         </TouchableOpacity>

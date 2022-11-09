@@ -1,23 +1,15 @@
-import { StatusBar } from 'expo-status-bar';
-import React, { useState } from "react";
+import React from "react";
 // import things related to React Navigation
 import { NavigationContainer} from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  TextInput,
-  Button,
-  TouchableOpacity,
-  TouchableHighlight,
-} from "react-native";
 
 // import screens
-import Login from "./screens/Login";
-import Register from "./screens/Register";
-import Screen2 from "./screens/Screen2";
+import Login from "./navigation/screens/Login";
+import Register from "./navigation/screens/Register";
+import HomeScreen from "./navigation/screens/HomeScreen";
+import OfferScreen from "./navigation/screens/OfferScreen";
+import InviteScreen from "./navigation/screens/InviteScreen";
+import Profile from "./navigation/screens/Profile";
 
 // create a "stack"
 const MyStack = createNativeStackNavigator();
@@ -30,8 +22,13 @@ const App = () => {
   }}>
         <MyStack.Screen name="Login" component={Login} />
         <MyStack.Screen name="Register" component={Register} />
-        <MyStack.Screen name="Screen2" component={Screen2} />
+        <MyStack.Screen name="HomeScreen" component={HomeScreen} />
+        <MyStack.Screen name="OfferScreen" component={OfferScreen} />
+        <MyStack.Screen name="InviteScreen" component={InviteScreen} />
+        <MyStack.Screen name="Profile" component={Profile} />
+
       </MyStack.Navigator>
+      
     </NavigationContainer>
   );
 };

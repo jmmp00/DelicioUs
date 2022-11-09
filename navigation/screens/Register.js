@@ -8,9 +8,7 @@ import {
   View,
   Image,
   TextInput,
-  Button,
   TouchableOpacity,
-  TouchableHighlight,
 } from "react-native";
 
 const Register = props => {
@@ -29,12 +27,12 @@ const Register = props => {
             width:30,
             height: 20,
             left:-170,
-          }} source={require('../assets/images/arrow-small-left.png')} />
+          }} source={require('../../assets/images/arrow-small-left.png')} />
         </TouchableOpacity>
 
         <Image
           style={styles.logo}
-          source={require('../assets/images/logo.png')}/>
+          source={require('../../assets/images/logo.png')}/>
 
 
       <View style={styles.container}>
@@ -79,7 +77,7 @@ const Register = props => {
       </View>
       <TouchableOpacity
           style={styles.RegisterScreenButton}
-          onPress={() => props.navigation.navigate('Screen2')}
+          onPress={() => props.navigation.navigate('HomeScreen')}
           underlayColor='#fff'>
           <Text style={styles.RegisterText}>Register</Text>
         </TouchableOpacity>
