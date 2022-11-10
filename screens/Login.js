@@ -14,12 +14,64 @@ import {
   TouchableHighlight,
 } from "react-native";
 
+import AsyncStorage from '@react-native-community/async-storage';
+
 const Login = props => {
 
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [userEmail, setUserEmail] = useState('');
+    const [userPassword, setUserPassword] = useState('');
+    const [loading, setLoading] = useState(false);
+    const [errortext, setErrortext] = useState('');
+   
+   
+    const handleSubmitPress = () => {
+      setErrortext('');
+      if (!userEmail) {
+        alert('Please fill Email');
+        return;
+      }
+      if (!userPassword) {
+        alert('Please fill Password');
+        return;
+      }
+      setLoading(true);
+      let dataToSend = {email: userEmail, password: userPassword};
+      let formBody = [];
+      for (let key in dataToSend) {
+        let encodedKey = encodeURIComponent(key);
+        let encodedValue = encodeURIComponent(dataToSend[key]);
+        formBody.push(encodedKey + '=' + encodedValue);
+      }
+      formBody = formBody.join('&');
+   
+      fetch('http://localhost:3000/users', {  
+        method: 'GET', 
+        withCredentials: true,  
+        crossorigin: true,  
+        mode: 'no-cors',     
+      })
+      .then((response) => response.json())
+      .then((responseJson) => {
+        //Hide Loader
+        setLoading(false);
+        console.log(responseJson);
+        // If server response message same as Data Matched
+        if (responseJson.status === 'success') {
+          AsyncStorage.setItem('email', responseJson.data.email);
+          console.log(responseJson.data.email);
+          navigation.replace('DrawerNavigationRoutes');
+        } else {
+          setErrortext(responseJson.msg);
+          console.log('Please check your email id or password');
+        }
+      })
+      .catch((error) => {
+        //Hide Loader
+        setLoading(false);
+        console.error(error);
+      });
+  };
 
-  
     return (
       <View style={styles.containerLogo}>    
         <Image
@@ -33,9 +85,9 @@ const Login = props => {
         <View style={styles.inputView}>
           <TextInput
             style={styles.TextInput}
-            placeholder="Username/Email"
+            placeholder="Email"
             placeholderTextColor="#000"
-            onChangeText={(email) => setEmail(email)}
+            onChangeText={(UserEmail) => setUserEmail(UserEmail)}
           />
         </View>
    
@@ -45,7 +97,7 @@ const Login = props => {
             placeholder="Password"
             placeholderTextColor="#000"
             secureTextEntry={true}
-            onChangeText={(password) => setPassword(password)}
+            onChangeText={(UserPassword) => setUserPassword(UserPassword)}
           />
         </View>
    
@@ -57,7 +109,7 @@ const Login = props => {
   
         <TouchableOpacity
           style={styles.loginScreenButton}
-          onPress={() => props.navigation.navigate('Screen2')}
+          onPress={handleSubmitPress}
           underlayColor='#fff'>
           <Text style={styles.loginText}>Login</Text>
  </TouchableOpacity>

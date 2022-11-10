@@ -29,4 +29,3 @@ const connection = mysql.createPool({
     console.log('Go to http://localhost:3000/users so you can see your data')
   })
 
-
