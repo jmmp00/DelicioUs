@@ -1,19 +1,25 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from "react";
+// import things related to React Navigation
+import { NavigationContainer, useLinkTo} from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import {
   StyleSheet,
   Text,
   View,
   Image,
   TextInput,
+  Button,
   TouchableOpacity,
+  TouchableHighlight,
 } from "react-native";
-import {useFonts} from "expo-font";
+
+//fonts
+import { useFonts } from 'expo-font';
 
 const Login = props => {
     let [fontsLoaded] = useFonts({
-        'Pacifico': require('../../assets/fonts/Pacifico.ttf')    });
-
+        'Pacifico': require('../assets/fonts/Pacifico.ttf')    });
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
@@ -22,7 +28,7 @@ const Login = props => {
       <View style={styles.containerLogo}>    
         <Image
           style={styles.logo}
-          source={require('../../assets/images/logo.png')}
+          source={require('../assets/images/logo.png')}
         />
   
         <View style={styles.container}>
@@ -51,12 +57,14 @@ const Login = props => {
           <Text style={styles.forgot_button}>Forgot Password?</Text>
         </TouchableOpacity>
   
+  
+  
         <TouchableOpacity
           style={styles.loginScreenButton}
-          onPress={() => props.navigation.navigate('HomeScreen')}
+          onPress={() => props.navigation.navigate('AddPost')}
           underlayColor='#fff'>
           <Text style={styles.loginText}>Login</Text>
-        </TouchableOpacity>
+ </TouchableOpacity>
   
         <View style={styles.row}>
           <Text>Don't have an account? </Text>    
@@ -105,16 +113,16 @@ const Login = props => {
       flex: 1,
       padding: 10,
       marginLeft: 20,
-        fontFamily: 'Pacifico',
+        fontFamily: "Pacifico",
     },
     forgot_button: {
       height: 30,
       marginBottom: 30,
     },
     loginScreenButton:{
-      alignItems: 'center',
-      height: 40,
-      width:100,
+    alignItems: 'center',
+    height: 40,
+    width:100,
       paddingTop:8,
       paddingBottom:10,
       backgroundColor:'#D3EAE8',

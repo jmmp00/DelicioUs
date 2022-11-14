@@ -10,6 +10,8 @@ import HomeScreen from "./navigation/screens/HomeScreen";
 import OfferScreen from "./navigation/screens/OfferScreen";
 import InviteScreen from "./navigation/screens/InviteScreen";
 import Profile from "./navigation/screens/Profile";
+import Map from "./navigation/screens/Map";
+import AddPost from "./navigation/screens/AddPost";
 
 // create a "stack"
 const MyStack = createNativeStackNavigator();
@@ -26,6 +28,8 @@ const App = () => {
         <MyStack.Screen name="OfferScreen" component={OfferScreen} />
         <MyStack.Screen name="InviteScreen" component={InviteScreen} />
         <MyStack.Screen name="Profile" component={Profile} />
+          <MyStack.Screen name="Map" component={Map} />
+          <MyStack.Screen name="AddPost" component={AddPost} />
 
       </MyStack.Navigator>
       

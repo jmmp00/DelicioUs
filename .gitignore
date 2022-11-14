@@ -53,3 +53,17 @@ buck-out/
 .expo/
 web-build/
 dist/
+\.buckd/
+*.keystore
+!debug.keystore
+
+# Bundle artifacts
+*.jsbundle
+
+# CocoaPods
+/ios/Pods/
+
+# Expo
+.expo/
+web-build/
+dist/
