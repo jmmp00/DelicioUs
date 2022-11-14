@@ -22,15 +22,22 @@ const OfferScreen = props => {
 
     <View style = {styles.lineStyle} />  
 
-    <View style={styles.screen}>
+    <Text style={styles.header}>In your area</Text>
+
+    <View style = {styles.offerContainer}>
+      <View style = {styles.innerContainer1}>  
+        <Image style={styles.restPic} source={{uri : 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmVzdGF1cmFudHxlbnwwfHwwfHw%3D&w=1000&q=80'}} />
+        <View style={styles.innerContainer2}>
+          <Text style={styles.restName}>Restaurant's Name</Text>
+          <View style={styles.innerContainer3}>
+            <Text>Description (max 140 characters)</Text>
+          </View>
+        </View>
+      </View>
+    </View> 
 
 
-
-
-    {/* Offers Here */}
-          
-
-
+    <View style={styles.nav}>
       <TouchableOpacity 
         style={styles.navButton2} 
         onPress={() => props.navigation.navigate('OfferScreen')}>
@@ -64,11 +71,12 @@ const OfferScreen = props => {
 };
 
 const styles = StyleSheet.create({
-  screen: {
+  nav: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    top:40,
+    position: 'absolute', //Here is the trick
+    bottom: -20, //Here is the trick
   },
   containerLogo: {
     flex: 1,
@@ -196,6 +204,57 @@ navButton4:{
   backgroundColor:'#F8F8FF',
   borderWidth: 1,
   borderColor: '#EB5F55',
+},
+header:{
+  top: 65,
+  color: '#D3EAE8',
+  fontSize: 25,
+  fontWeight: 'bold',
+  justiftyContent:"center", 
+  alignItems:"center",
+},
+offerContainer: {
+  top: 80,
+  height: 150,
+  width: 330,
+  backgroundColor: '#FBEE9C', 
+  borderRadius:10,
+  borderWidth: 1,
+  borderColor: '#FBEE9C',
+  flexDirection: "column",
+  marginBottom: 15,
+},
+innerContainer1:{
+  flexDirection: "row", 
+  alignItems:'center',   
+  height: 150, 
+  width: 330, 
+  padding:10,
+},
+restPic:{
+  height:70, 
+  width:70, 
+  borderRadius: 35, 
+  borderWidth: 2.5, 
+  borderColor: '#D3EAE8',
+},
+innerContainer2:{
+  flex:3, 
+  alignItems:'center',   
+  flexDirection: "column",
+},
+restName:{
+  marginBottom: 10, 
+  color:'#EB5F55', 
+  fontWeight:'bold',
+  fontSize: 16,
+},
+innerContainer3:{
+  backgroundColor:'#D3EAE8', 
+  padding: 9, 
+  borderRadius: 15, 
+  borderWidth: 2.5, 
+  borderColor: '#D3EAE8',
 },
 });
 

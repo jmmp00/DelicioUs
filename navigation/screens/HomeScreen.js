@@ -31,7 +31,8 @@ const HomeScreen = props => {
 
     <View style = {styles.lineStyle} />  
 
-    <View style={styles.screen}>
+
+        <View style={styles.postEach}>          
           <Image style={styles.userPhoto} source={{ uri:"https://media.self.com/photos/5f490e4e4a75ee30a626683e/4:3/w_2560%2Cc_limit/woman_food_donut.jpeg" }}/>
           <Text style={styles.userName}>username</Text>
 
@@ -53,9 +54,11 @@ const HomeScreen = props => {
           
           
           <View style = {styles.linePost} />  
-          
+        </View>
 
+         
 
+    <View style={styles.nav}>
       <TouchableOpacity 
         style={styles.navButton2} 
         onPress={() => props.navigation.navigate('OfferScreen')}>
@@ -89,11 +92,12 @@ const HomeScreen = props => {
 };
 
 const styles = StyleSheet.create({
-  screen: {
+  nav: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    top:40,
+    position: 'absolute', //Here is the trick
+    bottom: -20, //Here is the trick
   },
   containerLogo: {
     flex: 1,
@@ -114,9 +118,10 @@ const styles = StyleSheet.create({
 },
   linePost:{
     borderWidth: 1,
+    width: 250,
     borderColor:'#D3EAE8',
     top: 15,
-    alignSelf: 'stretch'
+    alignSelf: 'center'
 },
   userPhoto:{
   height: 80,
@@ -221,6 +226,13 @@ navButton4:{
   backgroundColor:'#F8F8FF',
   borderWidth: 1,
   borderColor: '#EB5F55',
+},
+postEach: {
+  justiftyContent:"center", 
+  alignItems:"center",
+  marginTop: 50, 
+  width: '100%',
+  flexDirection: "column",
 },
 });
 
