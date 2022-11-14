@@ -9,6 +9,8 @@ import {
   TouchableHighlight,
 } from 'react-native';
 
+import {useFonts} from "expo-font";
+
 const HomeScreen = props => {
   return (
     <View style={styles.containerLogo}>
@@ -19,7 +21,7 @@ const HomeScreen = props => {
         source={require('../../assets/images/logo2.png')}
       />
 
-      <TouchableOpacity  onPress={() => props.navigation.goBack()}>
+      <TouchableOpacity  onPress={() => props.navigation.navigate('AddPost')}>
           <Image style={{
             top: 0,
             width:30,
