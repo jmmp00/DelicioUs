@@ -9,7 +9,7 @@ import {
   TouchableHighlight,
 } from 'react-native';
 
-const Profile = props => {
+const Followers = props => {
   return (
     <View style={styles.containerLogo}>
     
@@ -19,45 +19,34 @@ const Profile = props => {
         source={require('../../assets/images/logo2.png')}
       />
 
+<TouchableOpacity  onPress={() => props.navigation.goBack()}>
+          <Image style={{
+            top: 3,
+            width:30,
+            height: 20,
+            left:-160,
+          }} source={require('../../assets/images/arrow-small-left.png')} />
+        </TouchableOpacity>
+
     </View>
 
     <View style = {styles.lineStyle} />  
 
-    <View style={styles.topContainer}>    
-      <Image
-        style={styles.profilePic}
-        source={{uri:'https://media.istockphoto.com/id/1299077582/photo/positivity-puts-you-in-a-position-of-power.jpg?b=1&s=170667a&w=0&k=20&c=4M8qWKQ6fB-Er_BDhhM80IkV6ShVLIttCaA4P__B2j0='}}
-      />
+ {/* 1 follower */}
 
-      <Text style={styles.profileUsername}>Username</Text>
-    </View>
-
-
-      <View style={styles.menuContainer}>
-      <TouchableOpacity 
-        style={styles.menuNotSelected} 
-        onPress={() => props.navigation.navigate('Preferences')}>
-          <Text style={styles.textNotSelected}>Preferences</Text>
-      </TouchableOpacity>   
-      <TouchableOpacity 
-        style={styles.menuSelected}>
-          <Text style={styles.textSelected}>Posts</Text>
-      </TouchableOpacity>   
-      <TouchableOpacity 
-        style={styles.menuNotSelected} 
-        onPress={() => props.navigation.navigate('Followers')}>
-          <Text style={styles.textNotSelected}>Followers</Text>
-      </TouchableOpacity>   
-
+    <View style = {styles.followContainer}>
+      <View style = {styles.innerContainer1}>  
+        <Image style={styles.profilePic} source={{uri : 'https://media.self.com/photos/5f490e4e4a75ee30a626683e/4:3/w_2560%2Cc_limit/woman_food_donut.jpeg'}} />
+          <Text style={styles.userName}>username</Text>
+          <TouchableOpacity style={styles.innerContainer3} >
+            <Text style={{color: 'white'}}>Following</Text>
+          </TouchableOpacity>   
       </View>
+    </View> 
 
-
-
-
-    {/* posts here */}
+ {/* end */}
           
-
-        <View style={styles.nav}>
+      <View style={styles.nav}>
       <TouchableOpacity 
         style={styles.navButton2} 
         onPress={() => props.navigation.navigate('OfferScreen')}>
@@ -70,8 +59,8 @@ const Profile = props => {
       </TouchableOpacity> 
       <TouchableOpacity 
         style={styles.navButton4}
-        onPress={() => props.navigation.navigate('Login')}>
-          <Image style={styles.navIcons} source={require('../../assets/images/exit.png')} />
+        onPress={() => props.navigation.navigate('Profile')}>
+          <Image style={styles.navIcons} source={require('../../assets/images/user.png')} />
       </TouchableOpacity> 
       <TouchableOpacity 
         style={styles.navButton5}
@@ -83,9 +72,6 @@ const Profile = props => {
         onPress={() => props.navigation.navigate('HomeScreen')}>
           <Image style={styles.home} source={require('../../assets/images/home.png')} />
       </TouchableOpacity> 
-      
-      
-      
       </View>
 
 
@@ -110,7 +96,7 @@ const styles = StyleSheet.create({
   lineStyle:{
     borderWidth: 0.5,
     borderColor:'#EB5F55',
-    top:50,
+    top:30,
     alignSelf: 'stretch'
 },
 //bottom nav bar
@@ -194,51 +180,51 @@ navButton4:{
   borderWidth: 1,
   borderColor: '#EB5F55',
 },
-//profile (posts) screen
-topContainer:{
-  justiftyContent:"center", 
-  alignItems:"center",
-  top: 100,
+//followers screen
+followContainer: {
+  top: 50,
+  height: 90,
+  width: 300,
+  backgroundColor: '#D3EAE8', 
+  borderRadius:10,
+  borderWidth: 1,
+  borderColor: '#D3EAE8',
+  flexDirection: "column",
+  marginBottom: 15,
+},
+innerContainer1:{
+  flexDirection: "row", 
+  alignItems:'center',   
+  height: 90,
+  width: 300,
+  padding:10,
 },
 profilePic:{
-  height: 120,
-  width: 120,
-  borderRadius: 60,
-  marginBottom: 10,
+  height:60, 
+  width:60, 
+  borderRadius: 30,
+  marginRight: 20,
 },
-profileUsername:{
-  fontWeight: 'bold',
-  fontSize: 19,
+innerContainer2:{
+  alignItems:'center',   
+  flexDirection: "row",
 },
-menuContainer:{
-  top: 150,  
-  flexDirection: "row", 
-  width: '100%', 
+userName:{
+  marginBottom: 10, 
+  color:'#000', 
+  fontWeight:'bold',
+  fontSize: 16,
+  marginRight: 10,
 },
-menuNotSelected:{  
-  backgroundColor:'#F8F8FF',
-  borderWidth: 1,
-  borderColor: '#EB5F55', 
-  height: 50, 
-  width: 130.8, 
-  alignItems: 'center',
-},
-menuSelected:{  
-  backgroundColor:'#EB5F55',
-  borderWidth: 1,
-  borderColor: '#EB5F55', 
-  height: 50, 
-  width: 130.8, 
-  alignItems: 'center',
-},
-textNotSelected:{  
-  color:'#EB5F55', 
-  paddingTop: 13,
-},
-textSelected:{  
-  color:'#fff', 
-  paddingTop: 13,
+innerContainer3:{  
+
+  backgroundColor:'#F7B8B4', 
+  padding: 6, 
+  borderRadius: 15, 
+  borderWidth: 2.5, 
+  borderColor: '#F7B8B4',
+
 },
 });
 
-export default Profile;
+export default Followers;

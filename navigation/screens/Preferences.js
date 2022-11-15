@@ -9,7 +9,7 @@ import {
   TouchableHighlight,
 } from 'react-native';
 
-const Profile = props => {
+const Preferences = props => {
   return (
     <View style={styles.containerLogo}>
     
@@ -35,13 +35,13 @@ const Profile = props => {
 
       <View style={styles.menuContainer}>
       <TouchableOpacity 
-        style={styles.menuNotSelected} 
-        onPress={() => props.navigation.navigate('Preferences')}>
-          <Text style={styles.textNotSelected}>Preferences</Text>
+        style={styles.menuSelected}>
+          <Text style={styles.textSelected}>Preferences</Text>
       </TouchableOpacity>   
       <TouchableOpacity 
-        style={styles.menuSelected}>
-          <Text style={styles.textSelected}>Posts</Text>
+        style={styles.menuNotSelected}
+        onPress={() => props.navigation.navigate('Profile')}>
+          <Text style={styles.textNotSelected}>Posts</Text>
       </TouchableOpacity>   
       <TouchableOpacity 
         style={styles.menuNotSelected} 
@@ -54,7 +54,7 @@ const Profile = props => {
 
 
 
-    {/* posts here */}
+    {/* preferences here */}
           
 
         <View style={styles.nav}>
@@ -241,4 +241,4 @@ textSelected:{
 },
 });
 
-export default Profile;
+export default Preferences;

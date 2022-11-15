@@ -33,6 +33,7 @@ const HomeScreen = props => {
 
     <View style = {styles.lineStyle} />  
 
+ {/* 1 post */}
 
         <View style={styles.postEach}>          
           <Image style={styles.userPhoto} source={{ uri:"https://media.self.com/photos/5f490e4e4a75ee30a626683e/4:3/w_2560%2Cc_limit/woman_food_donut.jpeg" }}/>
@@ -59,6 +60,7 @@ const HomeScreen = props => {
         </View>
 
          
+ {/* end */}
 
     <View style={styles.nav}>
       <TouchableOpacity 
@@ -67,7 +69,8 @@ const HomeScreen = props => {
           <Image style={styles.navIcons} source={require('../../assets/images/badge-percent.png')} />
       </TouchableOpacity>   
       <TouchableOpacity 
-        style={styles.navButton3}>
+        style={styles.navButton3}
+        onPress={() => props.navigation.navigate('Map')}>
           <Image style={styles.navIcons} source={require('../../assets/images/map-marker.png')} />
       </TouchableOpacity> 
       <TouchableOpacity 

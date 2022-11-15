@@ -12,6 +12,8 @@ import InviteScreen from "./navigation/screens/InviteScreen";
 import Profile from "./navigation/screens/Profile";
 import Map from "./navigation/screens/Map";
 import AddPost from "./navigation/screens/AddPost";
+import Preferences from "./navigation/screens/Preferences";
+import Followers from "./navigation/screens/Followers";
 
 // create a "stack"
 const MyStack = createNativeStackNavigator();
@@ -28,8 +30,10 @@ const App = () => {
         <MyStack.Screen name="OfferScreen" component={OfferScreen} />
         <MyStack.Screen name="InviteScreen" component={InviteScreen} />
         <MyStack.Screen name="Profile" component={Profile} />
-          <MyStack.Screen name="Map" component={Map} />
-          <MyStack.Screen name="AddPost" component={AddPost} />
+        <MyStack.Screen name="Preferences" component={Preferences} />
+        <MyStack.Screen name="Followers" component={Followers} />
+        <MyStack.Screen name="Map" component={Map} />
+        <MyStack.Screen name="AddPost" component={AddPost} />
 
       </MyStack.Navigator>
       
