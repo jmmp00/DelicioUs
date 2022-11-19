@@ -15,9 +15,101 @@ import {
 
 const Register = props => {
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
+  const [userEmail, setEmail] = useState("");
+  const [userPassword, setPassword] = useState("");
   const navigation = useNavigation();
+  const [loading, setLoading] = useState(false);
+  const [errortext, setErrortext] = useState('');
+  const [
+    isRegistraionSuccess,
+    setIsRegistraionSuccess
+  ] = useState(false);
+ 
+  const usernameInputRef = createRef();
+  const emailInputRef = createRef();
+  const passwordInputRef = createRef();
+
+  const handleSubmitButton = () => {
+    setErrortext('');
+    if (!username) {
+      alert('Please fill Name');
+      return;
+    }
+    if (!userEmail) {
+      alert('Please fill Email');
+      return;
+    }
+    if (!userPassword) {
+      alert('Please fill Password');
+      return;
+    }
+    //Show Loader
+    setLoading(true);
+    var dataToSend = {
+      username: userName,
+      email: userEmail,
+      password: userPassword,
+    };
+    var formBody = [];
+    for (var key in dataToSend) {
+      var encodedKey = encodeURIComponent(key);
+      var encodedValue = encodeURIComponent(dataToSend[key]);
+      formBody.push(encodedKey + '=' + encodedValue);
+    }
+    formBody = formBody.join('&');
+ 
+    fetch('http://localhost:3000/users/register', {
+      method: 'POST',
+      body: formBody,
+      headers: {
+        //Header Defination
+        'Content-Type':
+        'application/x-www-form-urlencoded;charset=UTF-8',
+      },
+    })
+      .then((response) => response.json())
+      .then((responseJson) => {
+        //Hide Loader
+        setLoading(false);
+        console.log(responseJson);
+        // If server response message same as Data Matched
+        if (responseJson.status === 'success') {
+          setIsRegistraionSuccess(true);
+          console.log(
+            'Registration Successful. Please Login to proceed'
+          );
+        } else {
+          setErrortext(responseJson.msg);
+        }
+      })
+      .catch((error) => {
+        //Hide Loader
+        setLoading(false);
+        console.error(error);
+      });
+  };
+  if (isRegistraionSuccess) {
+    return (
+      <View
+        style={{
+          flex: 1,
+          backgroundColor: '#307ecc',
+          justifyContent: 'center',
+        }}>
+        <Text style={styles.successTextStyle}>
+          Registration Successful
+        </Text>
+        <TouchableOpacity
+          style={styles.buttonStyle}
+          activeOpacity={0.5}
+          onPress={() => props.navigation.navigate('Login')}>
+          <Text style={styles.buttonTextStyle}>Login Now</Text>
+        </TouchableOpacity>
+      </View>
+    );
+  }
+  
 
   return (
 
@@ -35,7 +127,7 @@ const Register = props => {
           style={styles.TextInput}
           placeholder="Username"
           placeholderTextColor="#000"
-          onChangeText={(email) => setEmail(email)}
+          onChangeText={(UserName) => setUsername(UserName)}
         />
       </View>
  
@@ -44,7 +136,7 @@ const Register = props => {
           style={styles.TextInput}
           placeholder="Email"
           placeholderTextColor="#000"
-          onChangeText={(email) => setEmail(email)}
+          onChangeText={(UserEmail) => setEmail(UserEmailv)}
         />
       </View>
 
@@ -54,7 +146,7 @@ const Register = props => {
           placeholder="Password"
           placeholderTextColor="#000"
           secureTextEntry={true}
-          onChangeText={(password) => setPassword(password)}
+          onChangeText={(userPassword) => setPassword(userPassword)}
         />
       </View>
 
@@ -69,7 +161,7 @@ const Register = props => {
       </View>
       <TouchableOpacity
           style={styles.RegisterScreenButton}
-          onPress={() => props.navigation.navigate('Screen2')}
+          onPress={handleSubmitButton}
           underlayColor='#fff'>
           <Text style={styles.RegisterText}>Register</Text>
         </TouchableOpacity>

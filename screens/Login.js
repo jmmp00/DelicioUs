@@ -15,6 +15,7 @@ import {
 } from "react-native";
 
 import AsyncStorage from '@react-native-community/async-storage';
+import { text } from 'body-parser';
 
 const Login = props => {
 
@@ -26,6 +27,8 @@ const Login = props => {
    
     const handleSubmitPress = () => {
       setErrortext('');
+      console.log("User: " + userEmail)
+      console.log("Password: " +userPassword)
       if (!userEmail) {
         alert('Please fill Email');
         return;
@@ -35,41 +38,56 @@ const Login = props => {
         return;
       }
       setLoading(true);
-      let dataToSend = {email: userEmail, password: userPassword};
+      let dataToSend = {email: "Gui1h3rme", password: "ree95wrgqCNM4Su"};
       let formBody = [];
+      console.log(dataToSend)
       for (let key in dataToSend) {
         let encodedKey = encodeURIComponent(key);
         let encodedValue = encodeURIComponent(dataToSend[key]);
+        // console.log(encodedKey + ": " + encodedValue)
         formBody.push(encodedKey + '=' + encodedValue);
       }
+      // console.log("Form body: " +formBody)
       formBody = formBody.join('&');
-   
-      fetch('http://localhost:3000/users', {  
-        method: 'GET', 
-        withCredentials: true,  
-        crossorigin: true,  
-        mode: 'no-cors',     
-      })
-      .then((response) => response.json())
+      console.log("Beore fetch")
+      
+      fetch('http://localhost:3000/user', {
+      method: 'POST',
+      body: formBody,
+      mode:'no-cors',
+      headers: {
+        //Header Defination
+        credentials:false,
+        'Sec-Fetch-Mode':'cors',
+        'mode':'no-cors',
+        "Access-Control-Allow-Origin": "*",
+        'Access-Control-Allow-Methods': 'GET, POST',
+        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+      },
+    })
+    //  .then((response) => response.json())
+    // responseJson comes back empty  
       .then((responseJson) => {
         //Hide Loader
-        setLoading(false);
-        console.log(responseJson);
+        console.log(responseJson)
+        setLoading(true);
+          console.log("responsejson.data: "+JSON.stringify(responseJson));
         // If server response message same as Data Matched
-        if (responseJson.status === 'success') {
+        if (responseJson.status == 'success') {
           AsyncStorage.setItem('email', responseJson.data.email);
-          console.log(responseJson.data.email);
-          navigation.replace('DrawerNavigationRoutes');
+          console.log("responsejson.data.email: "+responseJson.data.email);
+          props.navigation.navigate('Screen2');
         } else {
           setErrortext(responseJson.msg);
-          console.log('Please check your email id or password');
+          console.log("ERROR!!!"+JSON.stringify(responseJson));
         }
       })
       .catch((error) => {
         //Hide Loader
         setLoading(false);
-        console.error(error);
+        console.error("ERROR: "+error);
       });
+      console.log("After")
   };
 
     return (
@@ -85,6 +103,7 @@ const Login = props => {
         <View style={styles.inputView}>
           <TextInput
             style={styles.TextInput}
+            // value="Gui1h3rme"
             placeholder="Email"
             placeholderTextColor="#000"
             onChangeText={(UserEmail) => setUserEmail(UserEmail)}
@@ -94,6 +113,7 @@ const Login = props => {
         <View style={styles.inputView}>
           <TextInput
             style={styles.TextInput}
+            // value="ree95wrgqCNM4Su"
             placeholder="Password"
             placeholderTextColor="#000"
             secureTextEntry={true}
