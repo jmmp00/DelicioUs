@@ -1,12 +1,8 @@
-import { StatusBar } from 'expo-status-bar';
-import React, { useState } from "react";
+import React from "react";
 import { StyleSheet, Text, View, Image, TextInput, Button, TouchableOpacity, TouchableHighlight,} from "react-native";
-import Login from "./Login";
 import {useFonts} from "expo-font";
 
 const AddPost = props => {
-    let [fontsLoaded] = useFonts({
-        'Pacifico': require('../../assets/fonts/Pacifico.ttf')    });
 
     return(
         <View style={styles.container}>
@@ -30,7 +26,7 @@ const AddPost = props => {
             <View>
                 <TouchableOpacity style={styles.ShareButton} onPress={() => props.navigation.navigate('Map')}>
                     <Text style={{
-                        color:"white", fontFamily:"Pacifico"
+                        color:"white",
                     }}>Share</Text>
                 </TouchableOpacity>
             </View>
@@ -80,7 +76,6 @@ const styles = StyleSheet.create({
         padding: 5,
         marginLeft: 10,
         color: "#D3EAE8",
-        fontFamily: 'Pacifico',
         textAlignVertical: "top",
 
     },
@@ -118,7 +113,6 @@ const styles2 = StyleSheet.create({
         padding: 5,
         marginLeft: 0,
         color: "#D3EAE8",
-        fontFamily: 'Pacifico',
     },
 
 })

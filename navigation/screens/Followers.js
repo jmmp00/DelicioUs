@@ -39,7 +39,7 @@ const Followers = props => {
         <Image style={styles.profilePic} source={{uri : 'https://media.self.com/photos/5f490e4e4a75ee30a626683e/4:3/w_2560%2Cc_limit/woman_food_donut.jpeg'}} />
           <Text style={styles.userName}>username</Text>
           <TouchableOpacity style={styles.innerContainer3} >
-            <Text style={{color: 'white'}}>Following</Text>
+            <Text style={{color: 'white'}}>Unfollow</Text>
           </TouchableOpacity>   
       </View>
     </View> 
@@ -60,7 +60,7 @@ const Followers = props => {
       <TouchableOpacity 
         style={styles.navButton4}
         onPress={() => props.navigation.navigate('Profile')}>
-          <Image style={styles.navIcons} source={require('../../assets/images/user.png')} />
+          <Image style={styles.navIcons} source={require('../../assets/images/userWHITE.png')} />
       </TouchableOpacity> 
       <TouchableOpacity 
         style={styles.navButton5}
@@ -176,7 +176,7 @@ navButton4:{
   width:100,
   paddingTop:7,
   paddingRight:0,
-  backgroundColor:'#F8F8FF',
+  backgroundColor:'#EB5F55',
   borderWidth: 1,
   borderColor: '#EB5F55',
 },
@@ -217,7 +217,8 @@ userName:{
   marginRight: 10,
 },
 innerContainer3:{  
-
+  position: 'absolute', 
+  right: 12,
   backgroundColor:'#F7B8B4', 
   padding: 6, 
   borderRadius: 15, 

@@ -9,7 +9,7 @@ import {
   TouchableHighlight,
 } from 'react-native';
 
-const InviteScreen = props => {
+const RecivedInvites = props => {
   return (
     <View style={styles.containerLogo}>
     
@@ -19,40 +19,38 @@ const InviteScreen = props => {
         source={require('../../assets/images/logo2.png')}
       />
 
-      <TouchableOpacity  onPress={() => props.navigation.navigate('RecivedInvites')}>
+<TouchableOpacity  onPress={() => props.navigation.goBack()}>
           <Image style={{
-            top: 0,
-            width:20,
+            top: 3,
+            width:30,
             height: 20,
-            right:-150,
-          }} source={require('../../assets/images/envelope.png')} />
+            left:-160,
+          }} source={require('../../assets/images/arrow-small-left.png')} />
         </TouchableOpacity>
+
     </View>
 
     <View style = {styles.lineStyle} />  
 
- 
+ {/* 1 invite */}
 
-        <View style={styles.rowInvite}>  
-
-        {/* fetch from the database on the next code */}
-          <View style={styles.Invite}>
-          <Image style={styles.InvitePic} source={{ uri:"https://freerangestock.com/sample/93712/girl-eating-food.jpg" }} />
-          <Text style={styles.userName}>username</Text>
-          <TouchableOpacity
-          style={styles.button}
-          onPress={() => props.navigation.navigate('HomeScreen')}
-          underlayColor='#fff'>
-          <Text style={styles.buttonText}>Invite</Text>
-          </TouchableOpacity>
+    <View style = {styles.followContainer}>
+      <View style = {styles.innerContainer1}>  
+        <Image style={styles.profilePic} source={{uri : 'https://media.self.com/photos/5f490e4e4a75ee30a626683e/4:3/w_2560%2Cc_limit/woman_food_donut.jpeg'}} />
+          <View style={styles.row}>
+            <Text style={styles.userName}>username</Text>
+            <Text style={{color: 'black', fontWeight:"bold",}}> sent an invite.</Text>
           </View>
+          <TouchableOpacity style={styles.innerContainer3}
+          onPress={() => props.navigation.navigate('ViewInvite')}>
+            <Text style={{color: 'white'}}>View</Text>
+          </TouchableOpacity>   
+      </View>
+    </View> 
+    
+ {/* end */}
           
-
-        </View>
-
-
-
-   <View style={styles.nav}>
+      <View style={styles.nav}>
       <TouchableOpacity 
         style={styles.navButton2} 
         onPress={() => props.navigation.navigate('OfferScreen')}>
@@ -79,6 +77,9 @@ const InviteScreen = props => {
           <Image style={styles.home} source={require('../../assets/images/home.png')} />
       </TouchableOpacity> 
       </View>
+
+
+      
     </View>
   );
 };
@@ -99,7 +100,7 @@ const styles = StyleSheet.create({
   lineStyle:{
     borderWidth: 0.5,
     borderColor:'#EB5F55',
-    top:50,
+    top:30,
     alignSelf: 'stretch'
 },
 //bottom nav bar
@@ -183,55 +184,53 @@ navButton4:{
   borderWidth: 1,
   borderColor: '#EB5F55',
 },
-//invite page
-userName:{
-  fontSize:20,
-  color: '#EB5F55',
-  fontWeight: 'bold',
+//recieved invites screen
+followContainer: {
+  top: 50,
+  height: 120,
+  width: 300,
+  backgroundColor: '#D3EAE8', 
+  borderRadius:10,
+  borderWidth: 1,
+  borderColor: '#D3EAE8',
+  flexDirection: "column",
+  marginBottom: 15,
 },
-  rowInvite: {   
-    width: '100%',
-    alignContent: 'stretch',
-    justifyContent: 'flex-start',
+innerContainer1:{
+  flexDirection: "row", 
+  alignItems:'center',   
+  height: 90,
+  width: 300,
+  padding:10,
+},
+profilePic:{
+  marginTop:25,
+  height: 80, 
+  width: 80, 
+  borderRadius: 40,
+  marginRight: 20, 
+  borderWidth: 3, 
+  borderColor: '#F7B8B4',
+},
+userName:{
+  color:'#EB5F55', 
+  fontWeight:'bold',
+},
+innerContainer3:{   
+  position: "absolute",
+  right: 95,
+  bottom: -13,
+  backgroundColor:'#F7B8B4', 
+  padding: 6, 
+  borderRadius: 15, 
+  borderWidth: 2.5, 
+  borderColor: '#F7B8B4',
+},
+row: {
     flexDirection: "row",
     flexWrap: "wrap",
-    marginTop: 65,
-
-},
-  Invite: {
-    marginLeft: 50,
-    paddingTop: 10,
-    alignItems:'center',
-    height: 130,
-    width:120,
-    backgroundColor:'#D3EAE8',
-    borderRadius:10,
-    borderWidth: 1,
-    borderColor: '#D3EAE8',
-    marginBottom: 10,
-},
-  InvitePic: {
-    height: 62,
-    width:62,
-    borderRadius: 31,
-    borderWidth: 2.5,
-    borderColor: '#F7B8B4',
-},
-  button:{
-    alignItems: 'center',
-    height: 22.5,
-    width:60,
-    backgroundColor:'#F7B8B4',
-    borderRadius:10,
-    borderWidth: 1,
-    borderColor: '#F7B8B4'
-},
-  buttonText:{
-    color:'#fff',
-    textAlign:'center',
-    paddingLeft : 10,
-    paddingRight : 10
-},
+    alignItems:'center', 
+  },
 });
 
-export default InviteScreen;
+export default RecivedInvites;
