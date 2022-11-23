@@ -14,6 +14,7 @@ import Map from "./navigation/screens/Map";
 import AddPost from "./navigation/screens/AddPost";
 import Preferences from "./navigation/screens/Preferences";
 import Followers from "./navigation/screens/Followers";
+import AddMedia from "./navigation/screens/AddMedia";
 
 // create a "stack"
 const MyStack = createNativeStackNavigator();
@@ -34,6 +35,7 @@ const App = () => {
         <MyStack.Screen name="Followers" component={Followers} />
         <MyStack.Screen name="Map" component={Map} />
         <MyStack.Screen name="AddPost" component={AddPost} />
+          <MyStack.Screen name="AddMedia" component={AddMedia} />
 
       </MyStack.Navigator>
       
