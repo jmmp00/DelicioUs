@@ -32,6 +32,17 @@ const Profile = props => {
       <Text style={styles.profileUsername}>Username</Text>
     </View>
 
+    
+    <View style={styles.Sustainability}>
+    <TouchableOpacity
+    onPress={() => props.navigation.navigate('Sustainability')}>
+      <Image
+        style={{height: 20, width: 20,}}
+        source={require('../../assets/images/smoke.png')}
+      />
+      <Text style={{color: "#F7B8B4",}}>0 kg</Text>
+      </TouchableOpacity>
+    </View>
 
       <View style={styles.menuContainer}>
       <TouchableOpacity 
@@ -53,11 +64,21 @@ const Profile = props => {
 
 
 
+    <View style={styles.rowPosts}>  
+    {/* post */}
+      <TouchableOpacity
+      style={styles.postRow}
+      onPress={() => props.navigation.navigate('HomeScreen')}
+      underlayColor='#fff'>
+        <Image style={styles.profilePost} source={{ uri:"https://freerangestock.com/sample/93712/girl-eating-food.jpg" }} />
+      </TouchableOpacity>
 
-    {/* posts here */}
-          
+    {/* more posts here */}
 
-        <View style={styles.nav}>
+    </View>
+
+
+    <View style={styles.nav}>
       <TouchableOpacity 
         style={styles.navButton2} 
         onPress={() => props.navigation.navigate('OfferScreen')}>
@@ -83,10 +104,7 @@ const Profile = props => {
         onPress={() => props.navigation.navigate('HomeScreen')}>
           <Image style={styles.home} source={require('../../assets/images/home.png')} />
       </TouchableOpacity> 
-      
-      
-      
-      </View>
+    </View>
 
 
       
@@ -211,7 +229,7 @@ profileUsername:{
   fontSize: 19,
 },
 menuContainer:{
-  top: 150,  
+  top: 100,  
   flexDirection: "row", 
   width: '100%', 
 },
@@ -238,6 +256,30 @@ textNotSelected:{
 textSelected:{  
   color:'#fff', 
   paddingTop: 13,
+},
+rowPosts:{
+  width: '100%',
+  alignContent: 'stretch',
+  justifyContent: 'flex-start',
+  flexDirection: "row",
+  flexWrap: "wrap",
+  marginTop: 100,
+},
+profilePost:{
+  marginLeft: 17.8,
+  margin: 10, 
+  height: 100,
+  width:100,
+  borderRadius: 50,
+  borderWidth: 2.5,
+  borderColor: '#FCEE9B',
+},
+Sustainability:{
+  width: 60,
+  height: 50,
+  alignItems: "center",
+  top: -90,
+  right: -150,
 },
 });
 

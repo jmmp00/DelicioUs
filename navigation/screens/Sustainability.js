@@ -9,7 +9,7 @@ import {
   TouchableHighlight,
 } from 'react-native';
 
-const InviteScreen = props => {
+const Sustainability = props => {
   return (
     <View style={styles.containerLogo}>
     
@@ -19,40 +19,47 @@ const InviteScreen = props => {
         source={require('../../assets/images/logo2.png')}
       />
 
-      <TouchableOpacity  onPress={() => props.navigation.navigate('RecivedInvites')}>
+<TouchableOpacity  onPress={() => props.navigation.goBack()}>
           <Image style={{
-            top: 0,
-            width:20,
+            top: 3,
+            width:30,
             height: 20,
-            right:-150,
-          }} source={require('../../assets/images/envelope.png')} />
+            left:-160,
+          }} source={require('../../assets/images/arrow-small-left.png')} />
         </TouchableOpacity>
+
     </View>
 
     <View style = {styles.lineStyle} />  
 
- 
+    <View style = {styles.container1}>
+          <Text style={{fontSize: 20, fontWeight: "bold", marginBottom: 5,}}>What is CO2e?</Text>
+          <Text>CO2e means "Carbon Dioxide Equivalent" and it's expressed in Kg.</Text>
+    </View> 
+     
+    <Image 
+        style= {{top:37.5, right: -85, height: 200, width: 160,}}
+        source={require('../../assets/ilustrations/1.png')} />
 
-        <View style={styles.rowInvite}>  
+    <View style={styles.container2}>
+        <Text style={{fontWeight: "bold"}}>Greenhouse Gas, GHG</Text>
+        <Text>Any gas in the atmosphere that absorbs and re-emits heat, and therefore warms our planet's atmosphere.</Text>
+    </View>
 
-        {/* fetch from the database on the next code */}
-          <View style={styles.Invite}>
-          <Image style={styles.InvitePic} source={{ uri:"https://freerangestock.com/sample/93712/girl-eating-food.jpg" }} />
-          <Text style={styles.userName}>username</Text>
-          <TouchableOpacity
-          style={styles.button}
-          onPress={() => props.navigation.navigate('HomeScreen')}
-          underlayColor='#fff'>
-          <Text style={styles.buttonText}>Invite</Text>
-          </TouchableOpacity>
-          </View>
-          
+    <View style={styles.container3}>
+        <Text>CO2 is the most common GHG emitted by human activity.</Text>
+        <Text>CO2e is the way to express all GHG quantities as an amount of CO2 that would create the same global warming impact.</Text>
+    </View>
 
-        </View>
+    <Image 
+        style= {{top:-95, left: -85, height: 175, width: 150,}}
+        source={require('../../assets/ilustrations/2.png')} />
 
-
-
-   <View style={styles.nav}>
+    <View style={styles.container4}>
+        <Text style={{fontWeight:"bold"}}>By using the app's Carpool Feature, Cupons or if you choose to use public transportation, you're saving the planet!</Text>
+    </View>
+   
+      <View style={styles.nav}>
       <TouchableOpacity 
         style={styles.navButton2} 
         onPress={() => props.navigation.navigate('OfferScreen')}>
@@ -66,12 +73,12 @@ const InviteScreen = props => {
       <TouchableOpacity 
         style={styles.navButton4}
         onPress={() => props.navigation.navigate('Profile')}>
-          <Image style={styles.navIcons} source={require('../../assets/images/user.png')} />
+          <Image style={styles.navIcons} source={require('../../assets/images/userWHITE.png')} />
       </TouchableOpacity> 
       <TouchableOpacity 
         style={styles.navButton5}
         onPress={() => props.navigation.navigate('InviteScreen')}>
-          <Image style={styles.navIcons} source={require('../../assets/images/envelope-plusWHITE.png')} />
+          <Image style={styles.navIcons} source={require('../../assets/images/envelope-plus.png')} />
       </TouchableOpacity> 
       <TouchableOpacity 
         style={styles.navButton1}
@@ -79,6 +86,9 @@ const InviteScreen = props => {
           <Image style={styles.home} source={require('../../assets/images/home.png')} />
       </TouchableOpacity> 
       </View>
+
+
+      
     </View>
   );
 };
@@ -99,7 +109,7 @@ const styles = StyleSheet.create({
   lineStyle:{
     borderWidth: 0.5,
     borderColor:'#EB5F55',
-    top:50,
+    top:30,
     alignSelf: 'stretch'
 },
 //bottom nav bar
@@ -166,7 +176,7 @@ navButton5:{
   width:100,
   paddingTop:7,
   paddingLeft:15,
-  backgroundColor:'#EB5F55',
+  backgroundColor:'#F8F8FF',
   borderWidth: 1,
   borderColor: '#EB5F55',
 },
@@ -179,59 +189,63 @@ navButton4:{
   width:100,
   paddingTop:7,
   paddingRight:0,
-  backgroundColor:'#F8F8FF',
+  backgroundColor:'#EB5F55',
   borderWidth: 1,
   borderColor: '#EB5F55',
 },
-//invite page
-userName:{
-  fontSize:20,
-  color: '#EB5F55',
-  fontWeight: 'bold',
+//recieved invites screen
+container1: {
+    padding: 10,
+  top: 50,
+  width: 300,
+  backgroundColor: '#D3EAE8', 
+  borderRadius:10,
+  borderWidth: 1,
+  borderColor: '#D3EAE8',
+  flexDirection: "column",
+  marginBottom: 15,
+  alignItems: "center",
 },
-  rowInvite: {   
-    width: '100%',
-    alignContent: 'stretch',
-    justifyContent: 'flex-start',
-    flexDirection: "row",
-    flexWrap: "wrap",
-    marginTop: 65,
-
+container2: {
+  top: -130,
+  left: -80,
+  width: 160,
+  height: 140,
+  padding:5,
+  backgroundColor: '#D3EAE8', 
+  borderRadius:10,
+  borderWidth: 1,
+  borderColor: '#D3EAE8',
+  alignItems: "center",
 },
-  Invite: {
-    marginLeft: 50,
-    paddingTop: 10,
-    alignItems:'center',
-    height: 130,
-    width:120,
-    backgroundColor:'#D3EAE8',
+container3: {
+    padding: 10,
+    top: -95,
+    width: 300,
+    backgroundColor: '#D3EAE8', 
     borderRadius:10,
     borderWidth: 1,
     borderColor: '#D3EAE8',
-    marginBottom: 10,
-},
-  InvitePic: {
-    height: 62,
-    width:62,
-    borderRadius: 31,
-    borderWidth: 2.5,
-    borderColor: '#F7B8B4',
-},
-  button:{
-    alignItems: 'center',
-    height: 22.5,
-    width:60,
-    backgroundColor:'#F7B8B4',
+    flexDirection: "column",
+    marginBottom: 15,
+    alignItems: "center",
+  },
+  container4: {
+    top: -250,
+    right: -85,
+    width: 160,
+    height: 120,
+    padding:5,
+    backgroundColor: '#D3EAE8', 
     borderRadius:10,
     borderWidth: 1,
-    borderColor: '#F7B8B4'
-},
-  buttonText:{
-    color:'#fff',
-    textAlign:'center',
-    paddingLeft : 10,
-    paddingRight : 10
-},
+    borderColor: '#D3EAE8',
+    alignItems: "center",
+  },
+row: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+  },
 });
 
-export default InviteScreen;
+export default Sustainability;

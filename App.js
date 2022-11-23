@@ -14,11 +14,13 @@ import Map from "./navigation/screens/Map";
 import AddPost from "./navigation/screens/AddPost";
 import Preferences from "./navigation/screens/Preferences";
 import Followers from "./navigation/screens/Followers";
-import AddMedia from "./navigation/screens/AddMedia";
+import RecivedInvites from "./navigation/screens/RecivedInvites";
+import ViewInvite from "./navigation/screens/ViewInvite";
+import Sustainability from "./navigation/screens/Sustainability";
+import Carpool from "./navigation/screens/Carpool";
 
 // create a "stack"
 const MyStack = createNativeStackNavigator();
-
 const App = () => {
   return (
     <NavigationContainer>
@@ -30,12 +32,16 @@ const App = () => {
         <MyStack.Screen name="HomeScreen" component={HomeScreen} />
         <MyStack.Screen name="OfferScreen" component={OfferScreen} />
         <MyStack.Screen name="InviteScreen" component={InviteScreen} />
+        <MyStack.Screen name="RecivedInvites" component={RecivedInvites} />
+        <MyStack.Screen name="ViewInvite" component={ViewInvite} />
         <MyStack.Screen name="Profile" component={Profile} />
         <MyStack.Screen name="Preferences" component={Preferences} />
         <MyStack.Screen name="Followers" component={Followers} />
         <MyStack.Screen name="Map" component={Map} />
-        <MyStack.Screen name="AddPost" component={AddPost} />
-          <MyStack.Screen name="AddMedia" component={AddMedia} />
+        <MyStack.Screen name="AddPost" component={AddPost} />   
+        <MyStack.Screen name="Sustainability" component={Sustainability} />  
+        <MyStack.Screen name="Carpool" component={Carpool} />  
+
 
       </MyStack.Navigator>
       
@@ -44,3 +50,4 @@ const App = () => {
 };
 
 export default App;
+

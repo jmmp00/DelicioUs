@@ -53,9 +53,35 @@ const Preferences = props => {
 
 
 
+      <View style={styles.prefRow}>  
+        <View style={styles.pref}>  
+          <Image style={styles.prefIcon} source={require('../../assets/images/pref-icons/fish.png')} />
+          <Text style={styles.prefText}>Fish</Text>
+        </View>
 
-    {/* preferences here */}
-          
+        <View style={styles.pref}>  
+          <Image style={styles.prefIcon} source={require('../../assets/images/pref-icons/turkey.png')} />
+          <Text style={styles.prefText}>Poultry</Text>
+        </View>
+
+        <View style={styles.pref}>  
+          <Image style={styles.prefIcon} source={require('../../assets/images/pref-icons/sushi.png')} />
+          <Text style={styles.prefText}>Japanese</Text>
+        </View>
+
+
+        <View style={styles.pref}>  
+          <Image style={styles.prefIcon} source={require('../../assets/images/pref-icons/hamburger.png')} />
+          <Text style={styles.prefText}>Savoury</Text>
+        </View>
+
+        <View style={styles.pref}>  
+          <Image style={styles.prefIcon} source={require('../../assets/images/pref-icons/carrot.png')} />
+          <Text style={styles.prefText}>Vegetables</Text>
+        </View>
+
+      </View>
+
 
         <View style={styles.nav}>
       <TouchableOpacity 
@@ -194,7 +220,7 @@ navButton4:{
   borderWidth: 1,
   borderColor: '#EB5F55',
 },
-//profile (posts) screen
+//profile (preferences) screen
 topContainer:{
   justiftyContent:"center", 
   alignItems:"center",
@@ -238,6 +264,32 @@ textNotSelected:{
 textSelected:{  
   color:'#fff', 
   paddingTop: 13,
+},
+//preference icons
+prefRow:{
+  width: '100%',
+  alignContent: 'stretch',
+  justifyContent: 'flex-start',
+  flexDirection: "row",
+  flexWrap: "wrap",
+  marginTop: 150,
+},
+prefIcon:{
+  height: 25,
+  width: 25,
+  marginBottom:5,
+},
+prefText:{
+  color:"#000",
+  fontWeight: "bold",
+},
+pref:{
+  height: 70,
+  width: 95,
+  alignItems: 'center',
+  padding: 10,
+  margin: 15,
+  marginLeft: 20,
 },
 });
 
