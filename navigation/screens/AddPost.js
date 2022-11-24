@@ -7,7 +7,7 @@ const AddPost = props => {
     return(
         <View style={styles.container}>
             <View style={styles.circle}>
-                <TouchableOpacity  onPress={() => props.navigation.navigate('Map')}>
+                <TouchableOpacity  onPress={() => props.navigation.navigate('AddMedia')}>
                 <Image  style={styles.blur} source={require('../../assets/images/blur.png')}/>
                 </TouchableOpacity>
             </View>
