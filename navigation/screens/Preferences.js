@@ -32,6 +32,16 @@ const Preferences = props => {
       <Text style={styles.profileUsername}>Username</Text>
     </View>
 
+    <View style={styles.Sustainability}>
+    <TouchableOpacity
+    onPress={() => props.navigation.navigate('Sustainability')}>
+      <Image
+        style={{height: 20, width: 20,}}
+        source={require('../../assets/images/smoke.png')}
+      />
+      <Text style={{color: "#F7B8B4",}}>5 kg</Text>
+      </TouchableOpacity>
+    </View>
 
       <View style={styles.menuContainer}>
       <TouchableOpacity 
@@ -237,7 +247,7 @@ profileUsername:{
   fontSize: 19,
 },
 menuContainer:{
-  top: 150,  
+  top: 100,  
   flexDirection: "row", 
   width: '100%', 
 },
@@ -272,7 +282,7 @@ prefRow:{
   justifyContent: 'flex-start',
   flexDirection: "row",
   flexWrap: "wrap",
-  marginTop: 150,
+  marginTop: 100,
 },
 prefIcon:{
   height: 25,
@@ -290,6 +300,13 @@ pref:{
   padding: 10,
   margin: 15,
   marginLeft: 20,
+},
+Sustainability:{
+  width: 60,
+  height: 50,
+  alignItems: "center",
+  top: -90,
+  right: -150,
 },
 });
 

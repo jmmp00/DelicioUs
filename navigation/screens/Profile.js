@@ -40,7 +40,7 @@ const Profile = props => {
         style={{height: 20, width: 20,}}
         source={require('../../assets/images/smoke.png')}
       />
-      <Text style={{color: "#F7B8B4",}}>0 kg</Text>
+      <Text style={{color: "#F7B8B4",}}>5 kg</Text>
       </TouchableOpacity>
     </View>
 

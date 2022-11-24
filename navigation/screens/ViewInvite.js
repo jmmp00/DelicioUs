@@ -59,7 +59,7 @@ const ViewInvite = props => {
             </TouchableOpacity>
             <TouchableOpacity 
                 style={styles.innerContainer3}
-                onPress={() => props.navigation.navigate('InviteScreen')}>
+                onPress={() => props.navigation.navigate('RecivedInvites')}>
                 <Text style={{color: 'white'}}>Decline</Text>
             </TouchableOpacity>  
           </View>  
