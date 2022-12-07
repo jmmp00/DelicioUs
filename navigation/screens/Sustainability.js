@@ -52,7 +52,7 @@ const Sustainability = props => {
     </View>
 
     <Image 
-        style= {{top:-95, left: -85, height: 175, width: 150,}}
+        style= {{top:-95, left: -85, height: 175, width: 150}}
         source={require('../../assets/ilustrations/2.png')} />
 
     <View style={styles.container4}>
@@ -114,10 +114,11 @@ const styles = StyleSheet.create({
 },
 //bottom nav bar
 nav: {
+  paddingTop:7,
   flex: 1,
   justifyContent: 'center',
   alignItems: 'center',
-  position: 'absolute', //Here is the trick
+  position: 'fixed', //Here is the trick
   bottom: -20, //Here is the trick
 },
 home:{

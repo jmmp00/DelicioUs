@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    position: 'absolute', //Here is the trick
+    position: 'fixed', //Here is the trick
     bottom: -20, //Here is the trick
   },
   containerLogo: {
