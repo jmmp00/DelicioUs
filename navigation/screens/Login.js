@@ -11,14 +11,13 @@ import {
 import {useFonts} from "expo-font";
 
 const Login = props => {
-    let [fontsLoaded] = useFonts({
-        'Pacifico': require('../../assets/fonts/Pacifico.ttf')    });
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
   
     return (
+      
       <View style={styles.containerLogo}>    
         <Image
           style={styles.logo}
@@ -34,6 +33,7 @@ const Login = props => {
             placeholder="Username/Email"
             placeholderTextColor="#000"
             onChangeText={(email) => setEmail(email)}
+            defaultValue={email}
           />
         </View>
    

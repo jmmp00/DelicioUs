@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View, Image, TextInput, Button, TouchableOpacity, TouchableHighlight,} from "react-native";
 
+
 const AddPost = props => {
 
     return(
