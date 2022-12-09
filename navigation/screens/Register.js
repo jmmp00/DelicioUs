@@ -29,10 +29,12 @@ const Register = props => {
           }} source={require('../../assets/images/arrow-small-left.png')} />
         </TouchableOpacity>
 
+
         <Image
           style={styles.logo}
-          source={require('../../assets/images/logo.png')}/>
-
+          source={require('../../assets/images/logo.png')}
+        />
+  
 
       <View style={styles.container}>
       <StatusBar style="auto" />
@@ -98,12 +100,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   logo: {
-    flex:0,
     resizeMode: "cover",
-    top: 80,
+    marginTop: 80,
     height: 126,
     width: 275,
-    marginBottom: 200,
+    marginBottom: 90,
   },
   inputView: {
     backgroundColor: "#F8F8FF",
