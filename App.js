@@ -27,9 +27,7 @@ const MyStack = createNativeStackNavigator();
 const App = () => {
   return (
     <NavigationContainer>
-      <MyStack.Navigator screenOptions={{
-    headerShown: false
-  }}>
+      <MyStack.Navigator screenOptions={{headerShown: false}}>
         <MyStack.Screen name="Login" component={Login} />
         <MyStack.Screen name="Register" component={Register} />
         <MyStack.Screen name="HomeScreen" component={HomeScreen} />
@@ -50,10 +48,9 @@ const App = () => {
 
 
       </MyStack.Navigator>
-      
     </NavigationContainer>
   );
 };
-
+console.disableYellowBox = true;
 export default App;
 
