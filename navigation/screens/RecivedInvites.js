@@ -35,10 +35,13 @@ const RecivedInvites = props => {
  {/* 1 invite */}
 
     <View style = {styles.followContainer}>
-      <View style = {styles.innerContainer1}>  
-        <Image style={styles.profilePic} source={{uri : 'https://media.self.com/photos/5f490e4e4a75ee30a626683e/4:3/w_2560%2Cc_limit/woman_food_donut.jpeg'}} />
+      <View style = {styles.innerContainer1}> 
+      <TouchableOpacity
+        onPress={() => props.navigation.navigate('Profile2')}>
+        <Image style={styles.profilePic} source={{uri : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSoQFvYAr4KD4S-iecBnmLmPf7zuyFyHkd8w&usqp=CAU'}} />
+      </TouchableOpacity> 
           <View style={styles.row}>
-            <Text style={styles.userName}>username</Text>
+            <Text style={styles.userName}>LauraJones</Text>
             <Text style={{color: 'black', fontWeight:"bold",}}> sent an invite.</Text>
           </View>
           <TouchableOpacity style={styles.innerContainer3}
@@ -49,6 +52,7 @@ const RecivedInvites = props => {
     </View> 
     
  {/* end */}
+
           
       <View style={styles.nav}>
       <TouchableOpacity 
@@ -108,7 +112,7 @@ nav: {
   flex: 1,
   justifyContent: 'center',
   alignItems: 'center',
-  position: 'absolute', //Here is the trick
+  position: 'fixed', //Here is the trick
   bottom: -20, //Here is the trick
 },
 home:{

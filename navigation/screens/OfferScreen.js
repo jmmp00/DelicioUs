@@ -30,14 +30,37 @@ const OfferScreen = props => {
       <View style = {styles.innerContainer1}>  
         <Image style={styles.restPic} source={{uri : 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmVzdGF1cmFudHxlbnwwfHwwfHw%3D&w=1000&q=80'}} />
         <View style={styles.innerContainer2}>
-          <Text style={styles.restName}>Restaurant's Name</Text>
+          <Text style={styles.restName}>Zenith</Text>
           <View style={styles.innerContainer3}>
-            <Text>Description (max 70 characters)</Text>
+            <Text>20% off on Brunch for 2!</Text>
           </View>
         </View>
       </View>
     </View> 
 
+    <View style = {styles.offerContainer}>
+      <View style = {styles.innerContainer1}>  
+        <Image style={styles.restPic} source={{uri : 'https://cdn.website.dish.co/media/bf/05/1671262/Francesinhas-Al-Forno-da-Baixa-AB037734-A3B5-498F-AA3C-26A87E70023B.jpg'}} />
+        <View style={styles.innerContainer2}>
+          <Text style={styles.restName}>Al Forno</Text>
+          <View style={styles.innerContainer3}>
+            <Text>1 free desert for orders over 20€</Text>
+          </View>
+        </View>
+      </View>
+    </View> 
+
+    <View style = {styles.offerContainer}>
+      <View style = {styles.innerContainer1}>  
+        <Image style={styles.restPic} source={{uri : 'https://media-cdn.tripadvisor.com/media/photo-s/23/7c/6b/57/tasco.jpg'}} />
+        <View style={styles.innerContainer2}>
+          <Text style={styles.restName}>Tasco</Text>
+          <View style={styles.innerContainer3}>
+            <Text>Free wine bottle for groups of 5+</Text>
+          </View>
+        </View>
+      </View>
+    </View> 
 
     <View style={styles.nav}>
       <TouchableOpacity 
@@ -97,7 +120,7 @@ nav: {
 flex: 1,
 justifyContent: 'center',
 alignItems: 'center',
-position: 'absolute', //Here is the trick
+position: 'fixed', //Here is the trick
 bottom: -20, //Here is the trick
 },
 home:{
@@ -175,15 +198,15 @@ borderColor: '#EB5F55',
 },
 //offers screen
 header:{
-  top: 65,
+  paddingTop: 70,
+  top: 100,
   color: '#D3EAE8',
   fontSize: 25,
   fontWeight: 'bold',
-  justiftyContent:"center", 
   alignItems:"center",
 },
 offerContainer: {
-  top: 80,
+  top: 20,
   height: 150,
   width: 330,
   backgroundColor: '#FBEE9C', 
@@ -216,7 +239,7 @@ restName:{
   marginBottom: 10, 
   color:'#EB5F55', 
   fontWeight:'bold',
-  fontSize: 16,
+  fontSize: 20,
 },
 innerContainer3:{
   backgroundColor:'#D3EAE8', 

@@ -105,7 +105,6 @@ const Login = props => {
       flex: 1,
       padding: 10,
       marginLeft: 20,
-        fontFamily: 'Pacifico',
     },
     forgot_button: {
       height: 30,

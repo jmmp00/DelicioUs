@@ -37,18 +37,18 @@ const ViewInvite = props => {
     <View style = {styles.followContainer}>
       <View style = {styles.innerContainer1}>  
         <Image style={styles.profilePic} source={{uri : 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmVzdGF1cmFudHxlbnwwfHwwfHw%3D&w=1000&q=80'}} />
-        <Text style={styles.userName}>username</Text>
+        <Text style={styles.userName}>LauraJones</Text>
         <View style={styles.restName}>        
             <Image 
                 style={{width:20, height: 20,}} 
                 source={require('../../assets/images/marker.png')}/>
-            <Text>Restaurant's Name</Text>
+            <Text> Zenith Porto</Text>
         </View>
         <View style={styles.dateTime}>        
             <Image 
                 style={{width:20, height: 20,}} 
                 source={require('../../assets/images/calendar.png')}/>
-            <Text> Date/Time</Text>
+            <Text> 12th December | 7pm</Text>
         </View>
       </View>
       <View style={styles.row}>
@@ -125,7 +125,7 @@ nav: {
   flex: 1,
   justifyContent: 'center',
   alignItems: 'center',
-  position: 'absolute', //Here is the trick
+  position: 'fixed', //Here is the trick
   bottom: -20, //Here is the trick
 },
 home:{
@@ -228,9 +228,9 @@ profilePic:{
   marginRight: 20, 
 },
 userName:{
+  marginTop: -30,
   color:'#EB5F55', 
   fontWeight:'bold',
-  top: -20,
   fontSize: 15,
 },
 innerContainer3:{   
@@ -248,13 +248,13 @@ row: {
     alignItems:'center',
   },
 restName:{
-    left:-65,
-    top: 5,
+    left:-75,
+    top: 10,
     flexDirection: "row",
 },
 dateTime:{
-    left:-205,
-    top: 30,
+    left:-175,
+    top: 35,
     flexDirection: "row",
 },
 });

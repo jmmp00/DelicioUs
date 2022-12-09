@@ -26,10 +26,10 @@ const Preferences = props => {
     <View style={styles.topContainer}>    
       <Image
         style={styles.profilePic}
-        source={{uri:'https://media.istockphoto.com/id/1299077582/photo/positivity-puts-you-in-a-position-of-power.jpg?b=1&s=170667a&w=0&k=20&c=4M8qWKQ6fB-Er_BDhhM80IkV6ShVLIttCaA4P__B2j0='}}
+        source={require('../../assets/images/profilepics/profilePic.jpg')}
       />
 
-      <Text style={styles.profileUsername}>Username</Text>
+      <Text style={styles.profileUsername}>JessFromPorto</Text>
     </View>
 
     <View style={styles.Sustainability}>
@@ -39,7 +39,7 @@ const Preferences = props => {
         style={{height: 20, width: 20,}}
         source={require('../../assets/images/smoke.png')}
       />
-      <Text style={{color: "#F7B8B4",}}>5 kg</Text>
+      <Text style={{color: "#F7B8B4",}}>7 kg</Text>
       </TouchableOpacity>
     </View>
 
@@ -154,7 +154,7 @@ nav: {
   flex: 1,
   justifyContent: 'center',
   alignItems: 'center',
-  position: 'absolute', //Here is the trick
+  position: 'fixed', //Here is the trick
   bottom: -20, //Here is the trick
 },
 home:{

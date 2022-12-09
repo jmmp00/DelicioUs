@@ -37,17 +37,41 @@ const InviteScreen = props => {
 
         {/* fetch from the database on the next code */}
           <View style={styles.Invite}>
-          <Image style={styles.InvitePic} source={{ uri:"https://freerangestock.com/sample/93712/girl-eating-food.jpg" }} />
-          <Text style={styles.userName}>username</Text>
+          <Image style={styles.InvitePic} source={{ uri:"https://media.self.com/photos/5f490e4e4a75ee30a626683e/4:3/w_2560%2Cc_limit/woman_food_donut.jpeg" }} />
+          <Text style={styles.userName}>SamanthaLevy</Text>
           <TouchableOpacity
-          style={styles.button}
-          onPress={() => props.navigation.navigate('HomeScreen')}
-          underlayColor='#fff'>
+          style={styles.button}>
           <Text style={styles.buttonText}>Invite</Text>
           </TouchableOpacity>
           </View>
           
-
+          <View style={styles.Invite}>
+          <Image style={styles.InvitePic} source={{ uri:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSoQFvYAr4KD4S-iecBnmLmPf7zuyFyHkd8w&usqp=CAU" }} />
+          <Text style={styles.userName}>LauraJones</Text>
+          <TouchableOpacity
+          style={styles.button}>
+          <Text style={styles.buttonText}>Invite</Text>
+          </TouchableOpacity>
+          </View>
+                    
+          <View style={styles.Invite}>
+          <Image style={styles.InvitePic} source={{ uri:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYzDV9oMHp7mVm2XIKVfgIoVBUrIcNnBgzgw&usqp=CAU" }} />
+          <Text style={styles.userName}>ThomasSmith</Text>
+          <TouchableOpacity
+          style={styles.button}>
+          <Text style={styles.buttonText}>Invite</Text>
+          </TouchableOpacity>
+          </View>
+          
+          <View style={styles.Invite}>
+          <Image style={styles.InvitePic} source={{ uri:"https://t4.ftcdn.net/jpg/03/64/21/11/360_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg" }} />
+          <Text style={styles.userName}>DavidSummers</Text>
+          <TouchableOpacity
+          style={styles.button}>
+          <Text style={styles.buttonText}>Invite</Text>
+          </TouchableOpacity>
+          </View>
+          
         </View>
 
 
@@ -107,7 +131,7 @@ nav: {
   flex: 1,
   justifyContent: 'center',
   alignItems: 'center',
-  position: 'absolute', //Here is the trick
+  position: 'fixed', //Here is the trick
   bottom: -20, //Here is the trick
 },
 home:{
@@ -185,7 +209,7 @@ navButton4:{
 },
 //invite page
 userName:{
-  fontSize:20,
+  fontSize:16,
   color: '#EB5F55',
   fontWeight: 'bold',
 },

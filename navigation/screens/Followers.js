@@ -37,12 +37,56 @@ const Followers = props => {
     <View style = {styles.followContainer}>
       <View style = {styles.innerContainer1}>  
         <Image style={styles.profilePic} source={{uri : 'https://media.self.com/photos/5f490e4e4a75ee30a626683e/4:3/w_2560%2Cc_limit/woman_food_donut.jpeg'}} />
-          <Text style={styles.userName}>username</Text>
+          <Text style={styles.userName}>SamanthaLevy</Text>
           <TouchableOpacity style={styles.innerContainer3} >
             <Text style={{color: 'white'}}>Unfollow</Text>
           </TouchableOpacity>   
       </View>
     </View> 
+
+    <View style = {styles.followContainer}>
+      <View style = {styles.innerContainer1}> 
+        <TouchableOpacity
+        onPress={() => props.navigation.navigate('Profile2')}> 
+        <Image style={styles.profilePic} source={{ uri:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSoQFvYAr4KD4S-iecBnmLmPf7zuyFyHkd8w&usqp=CAU"}} />
+        </TouchableOpacity> 
+          <Text style={styles.userName}>LauraJones</Text>
+          <TouchableOpacity style={styles.innerContainer3} >
+            <Text style={{color: 'white'}}>Unfollow</Text>
+          </TouchableOpacity>   
+      </View>
+    </View> 
+
+    <View style = {styles.followContainer}>
+      <View style = {styles.innerContainer1}> 
+        <Image style={styles.profilePic} source={{ uri:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYzDV9oMHp7mVm2XIKVfgIoVBUrIcNnBgzgw&usqp=CAU" }}/>
+          <Text style={styles.userName}>ThomasSmith</Text>
+          <TouchableOpacity style={styles.innerContainer3} >
+            <Text style={{color: 'white'}}>Unfollow</Text>
+          </TouchableOpacity>   
+      </View>
+    </View> 
+
+    <View style = {styles.followContainer}>
+      <View style = {styles.innerContainer1}> 
+        <Image style={styles.profilePic} source={{ uri:"https://t4.ftcdn.net/jpg/03/64/21/11/360_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg" }}/>
+          <Text style={styles.userName}>DavidSummers</Text>
+          <TouchableOpacity style={styles.innerContainer3} >
+            <Text style={{color: 'white'}}>Unfollow</Text>
+          </TouchableOpacity>   
+      </View>
+    </View> 
+
+    <View style = {styles.followContainer}>
+      <View style = {styles.innerContainer1}> 
+        <Image style={styles.profilePic} source={{ uri:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5VNhaCijES0WT5M9CGFub4STt2E0ebRGPEw&usqp=CAU" }}/>
+          <Text style={styles.userName}>SophieKris</Text>
+          <TouchableOpacity style={styles.innerContainer3} >
+            <Text style={{color: 'white'}}>Follow</Text>
+          </TouchableOpacity>   
+      </View>
+    </View> 
+
 
  {/* end */}
           
@@ -104,7 +148,7 @@ nav: {
   flex: 1,
   justifyContent: 'center',
   alignItems: 'center',
-  position: 'absolute', //Here is the trick
+  position: 'fixed', //Here is the trick
   bottom: -20, //Here is the trick
 },
 home:{

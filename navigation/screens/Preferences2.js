@@ -9,7 +9,7 @@ import {
   TouchableHighlight,
 } from 'react-native';
 
-const Profile = props => {
+const Preferences2 = props => {
   return (
     <View style={styles.containerLogo}>
     
@@ -22,17 +22,16 @@ const Profile = props => {
     </View>
 
     <View style = {styles.lineStyle} />  
-
+    
     <View style={styles.topContainer}>    
       <Image
         style={styles.profilePic}
-        source={require('../../assets/images/profilepics/profilePic.jpg')}
+        source={{ uri:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSoQFvYAr4KD4S-iecBnmLmPf7zuyFyHkd8w&usqp=CAU"}}
       />
 
-      <Text style={styles.profileUsername}>JessFromPorto</Text>
+      <Text style={styles.profileUsername}>LauraJones</Text>
     </View>
 
-    
     <View style={styles.Sustainability}>
     <TouchableOpacity
     onPress={() => props.navigation.navigate('Sustainability')}>
@@ -40,19 +39,19 @@ const Profile = props => {
         style={{height: 20, width: 20,}}
         source={require('../../assets/images/smoke.png')}
       />
-      <Text style={{color: "#F7B8B4",}}>7 kg</Text>
+      <Text style={{color: "#F7B8B4",}}>2 kg</Text>
       </TouchableOpacity>
     </View>
 
       <View style={styles.menuContainer}>
       <TouchableOpacity 
-        style={styles.menuNotSelected} 
-        onPress={() => props.navigation.navigate('Preferences')}>
-          <Text style={styles.textNotSelected}>Preferences</Text>
+        style={styles.menuSelected}>
+          <Text style={styles.textSelected}>Preferences</Text>
       </TouchableOpacity>   
       <TouchableOpacity 
-        style={styles.menuSelected}>
-          <Text style={styles.textSelected}>Posts</Text>
+        style={styles.menuNotSelected}
+        onPress={() => props.navigation.navigate('Profile')}>
+          <Text style={styles.textNotSelected}>Posts</Text>
       </TouchableOpacity>   
       <TouchableOpacity 
         style={styles.menuNotSelected} 
@@ -64,44 +63,37 @@ const Profile = props => {
 
 
 
-    <View style={styles.rowPosts}>  
-    {/* post */}
-      <TouchableOpacity
-      style={styles.postRow}>
-        <Image style={styles.profilePost} source={{ uri:"https://berriesandspice.com/wp-content/uploads/2018/08/Berries-and-Spice-How-to-plate-dishes-worthy-of-a-fine-dining-restaurant-the-complete-guide-23-scaled.jpg" }} />
-      </TouchableOpacity>
+      <View style={styles.prefRow}>  
+        <View style={styles.pref}>  
+          <Image style={styles.prefIcon} source={require('../../assets/images/pref-icons/fish.png')} />
+          <Text style={styles.prefText}>Fish</Text>
+        </View>
 
-      <TouchableOpacity
-      style={styles.postRow}>
-        <Image style={styles.profilePost} source={{ uri:"https://blog.opentable.com/wp-content/uploads/sites/108/2017/07/Blog-Hazel-copy.jpeg" }} />
-      </TouchableOpacity>
+        <View style={styles.pref}>  
+          <Image style={styles.prefIcon} source={require('../../assets/images/pref-icons/turkey.png')} />
+          <Text style={styles.prefText}>Poultry</Text>
+        </View>
 
-      <TouchableOpacity
-      style={styles.postRow}>
-        <Image style={styles.profilePost} source={{ uri:"https://top.his-usa.com/destination-japan/up_img/cke/imgs/20171122/tempura.jpg" }} />
-      </TouchableOpacity>
-
-      <TouchableOpacity
-      style={styles.postRow}>
-        <Image style={styles.profilePost} source={{ uri:"https://www.real-restaurant-recipes.com/images/roasted-vegetables2.jpg" }} />
-      </TouchableOpacity>
-
-      <TouchableOpacity
-      style={styles.postRow}>
-        <Image style={styles.profilePost} source={{ uri:"https://cdm0lfbn.cloudimg.io/v7/_images_base_/image_uploader/photos/95/original/les-pecheurs-restaurant-review.jpg?ua=1579873471&p=large" }} />
-      </TouchableOpacity>
-
-      <TouchableOpacity
-      style={styles.postRow}>
-        <Image style={styles.profilePost} source={{ uri:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQy4t7oMp7tU9t7Arqqgp8YVafhEz_7gJV5Uw&usqp=CAU" }} />
-      </TouchableOpacity>
-
-    {/* more posts here */}
-
-    </View>
+        <View style={styles.pref}>  
+          <Image style={styles.prefIcon} source={require('../../assets/images/pref-icons/sushi.png')} />
+          <Text style={styles.prefText}>Japanese</Text>
+        </View>
 
 
-    <View style={styles.nav}>
+        <View style={styles.pref}>  
+          <Image style={styles.prefIcon} source={require('../../assets/images/pref-icons/hamburger.png')} />
+          <Text style={styles.prefText}>Savoury</Text>
+        </View>
+
+        <View style={styles.pref}>  
+          <Image style={styles.prefIcon} source={require('../../assets/images/pref-icons/carrot.png')} />
+          <Text style={styles.prefText}>Vegetables</Text>
+        </View>
+
+      </View>
+
+
+        <View style={styles.nav}>
       <TouchableOpacity 
         style={styles.navButton2} 
         onPress={() => props.navigation.navigate('OfferScreen')}>
@@ -127,7 +119,10 @@ const Profile = props => {
         onPress={() => props.navigation.navigate('HomeScreen')}>
           <Image style={styles.home} source={require('../../assets/images/home.png')} />
       </TouchableOpacity> 
-    </View>
+      
+      
+      
+      </View>
 
 
       
@@ -235,7 +230,7 @@ navButton4:{
   borderWidth: 1,
   borderColor: '#EB5F55',
 },
-//profile (posts) screen
+//profile (preferences) screen
 topContainer:{
   justiftyContent:"center", 
   alignItems:"center",
@@ -280,23 +275,31 @@ textSelected:{
   color:'#fff', 
   paddingTop: 13,
 },
-rowPosts:{
+//preference icons
+prefRow:{
   width: '100%',
   alignContent: 'stretch',
   justifyContent: 'flex-start',
   flexDirection: "row",
   flexWrap: "wrap",
   marginTop: 100,
-  marginLeft: 30,
 },
-profilePost:{
-  marginLeft: 17.8,
-  margin: 10, 
-  height: 100,
-  width:100,
-  borderRadius: 50,
-  borderWidth: 2.5,
-  borderColor: '#FCEE9B',
+prefIcon:{
+  height: 25,
+  width: 25,
+  marginBottom:5,
+},
+prefText:{
+  color:"#000",
+  fontWeight: "bold",
+},
+pref:{
+  height: 70,
+  width: 95,
+  alignItems: 'center',
+  padding: 10,
+  margin: 15,
+  marginLeft: 20,
 },
 Sustainability:{
   width: 60,
@@ -307,4 +310,4 @@ Sustainability:{
 },
 });
 
-export default Profile;
+export default Preferences2;
